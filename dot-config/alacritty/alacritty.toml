@@ -1,8 +1,7 @@
-# $XDG_CONFIG_DIRECTORY/alacritty/alacritty.toml
-# https://alacritty.org/config-alacritty.html
+# $XDG_CONFIG_HOME/alacritty/alacritty.toml
 [general]
 import = [
-    "$XDG_CONFIG_DIRECTORY/alacritty/themes/solarized/solarized_light.toml",
+    "themes/solarized_light.toml"
 ]
 [env]
 NEW_TERMINAL_SESSION = "true"
