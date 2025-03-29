@@ -3,18 +3,13 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
-alias dvim='doas vim'
 
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
 
 alias th='trash'
-alias 'doas th'='doas trash'
-
-alias 'doas rm'='doas rm -i'
-alias 'doas mv'='doas mv -i'
-alias 'doas cp'='doas cp -i'
+alias ncdu='ncdu --color=dark'
 
 # %n = user
 # %m = hostname
