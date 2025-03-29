@@ -3,13 +3,14 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
-alias cdiff='diff --color=always'
 alias dvim='doas vim'
-alias run='bemenu-run -iCTp "run"'
 
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
+
+alias th='trash'
+alias 'doas th'='doas trash'
 
 alias 'doas rm'='doas rm -i'
 alias 'doas mv'='doas mv -i'
@@ -45,8 +46,8 @@ setopt interactive_comments
 setopt print_exit_value
 
 # Load the new completion system
-autoload -U compinit
-compinit
+autoload -U compinit; compinit
+
 # Set fully case-insensitive completion
 #zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # Set lower-to-uppercase-insensitive completion
