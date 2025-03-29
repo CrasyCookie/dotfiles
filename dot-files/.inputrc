@@ -1,0 +1,28 @@
+# ~/.inputrc
+
+# Set vi-like line-editing mode
+set editing-mode vi
+# Don't tab-autocomplete hidden-/dotfiles
+set match-hidden-files off
+# Additional lines to show completion on
+set completion-display-width 2
+# Show possible completions
+set colored-completion-prefix on
+# Use different colours for different types of files (see above)
+set colored-stats on
+# Use case-insensitive completion
+set completion-ignore-case on
+# Briefly move cursor to opening parenthesis upon closing it
+set blink-matching-paren on
+# Set max history to 1000 lines
+set history-size 1000
+# Mark modified lines in history with an asterisk
+set mark-modified-lines on
+# Append a slash to symlinked directories in completion
+set mark-symlinked-directories on
+# Complete the common prefix of all possible completions
+set menu-complete-display-prefix on
+# Print completions horizontally
+set print-completions-horizontally on
+# Don't duplicate text when completing in the middle of a word
+set skip-completed-text on

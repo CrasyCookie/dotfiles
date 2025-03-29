@@ -1,0 +1,57 @@
+" ~/.config/vim/vimrc
+
+" Jump to the last position when reopening a file
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" Turn on syntax highlighting
+syntax on
+
+" Load indentation rules and plugins according to the detected filetype.
+filetype plugin indent on
+
+" Change settings in the editor.
+set showcmd         " Show (partial) commands in status line
+set showmatch       " Show matching brackets
+set incsearch       " Incremental search
+set hlsearch        " Highlighted search
+set tabstop=4       " Tabs indent four spaces
+set shiftwidth=4    " Tabs indent four spaces
+set expandtab       " Use spaces instead of tabs
+
+" Use the right amount of colours.
+let colourterm = system("echo \"$COLORTERM\"")
+
+" =~ is a regex search, =~? is a case insensitive version.
+if colourterm =~? "truecolor" || colourterm =~? "24bit"
+    set t_Co=256
+    "set termguicolors
+elseif colourterm =~? "256"
+    set t_Co=256
+    let g:solarized_termcolors=256
+else
+    set t_Co=16
+    let g:solarized_termcolors=16
+endif
+
+" If it's between 22-5'o clock UTC set it to dark mode.
+"let hourtime = system("date +%H")
+"if hourtime >= 22 || hourtime <= 5
+"    set background=dark
+"else
+"    set background=light
+"endif
+set background=light
+
+colorscheme solarized
+set colorcolumn=85
+
+" Force-save files using sudo
+cmap w!! w !doas tee > /dev/null %
+
+" Return to normal mode from visual- and insert mode when pressing AltGr+Alt
+" Is what I would do if it was POSSIBLE (or it is and I just don't know how to do it).
+
+" Source a global configuration file if available
+if filereadable("/etc/vim/vimrc.local")
+  source /etc/vim/vimrc.local
+endif

@@ -1,0 +1,18 @@
+# $XDG_CONFIG_DIRECTORY/alacritty/alacritty.toml
+# https://alacritty.org/config-alacritty.html
+[general]
+import = [
+    "$XDG_CONFIG_DIRECTORY/alacritty/themes/solarized/solarized_light.toml",
+]
+[env]
+NEW_TERMINAL_SESSION = "true"
+[window]
+# Window title, default "Alacritty"
+#title = "Alacritty"
+dynamic_title = true
+[font]
+# Font size, default 11.25
+#size = 11.25
+[terminal]
+#program = "/bin/zsh"
+#args = ["-l"]
