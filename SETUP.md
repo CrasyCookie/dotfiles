@@ -2,12 +2,12 @@
 
 To setup the dotfiles, just copy or symlink them into `$HOME` and `$XDG_CONFIG_HOME`. To change `$XDG_CONFIG_HOME` from `$HOME/.config` look at the `files/.zshenv` file.
 ```sh
-$ ln -s ./files/* "$HOME"
+$ ln -s ./files/.* "$HOME"
 $ ln -s ./config/* "$HOME/.config"
 ```
 alternatively
 ```sh
-$ cp -r ./files/* "$HOME"
+$ cp -r ./files/.* "$HOME"
 $ cp -r ./config/* "$HOME/.config"
 ```
 
