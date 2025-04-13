@@ -8,9 +8,6 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
 
-alias th='trash'
-alias ncdu='ncdu --color=dark'
-
 # %n = user
 # %m = hostname
 # %d = cwd
