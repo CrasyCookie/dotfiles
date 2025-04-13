@@ -11,6 +11,8 @@ $ cp -r ./files/.* "$HOME"
 $ cp -r ./config/* "$HOME/.config"
 ```
 
+*BUT* you have to copy `config/sway/`, `config/swaylock/` and `files/.xkb/` as sway and swaylock can't follow symlinks.
+
 Screenshots (grim+slurp) are stored in `xdg-user-dir PICTURES`, take a look at `xdg-user-dirs-update(1)` on how to change it.
 ```sh
 $ xdg-user-dirs-update PICTURES "$HOME/Pictures"
