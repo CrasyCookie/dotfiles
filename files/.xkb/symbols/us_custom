@@ -1,0 +1,39 @@
+// Made in 2025 by CrasyCookie
+// This keyboard layout is in
+// the public domain, CC0.
+partial alphanumeric_keys
+xkb_symbols "basic" {
+
+    include "us(basic)"
+    include "eurosign(e)"
+    include "eurosign(5)"
+    name[Group1] = "English, Swedish (International)";
+
+    // ÅÄÖ
+    key <AD11> { [ bracketleft,  braceleft,  aring,         Aring        ] };
+    key <AC10> { [ semicolon,    colon,      odiaeresis,    Odiaeresis   ] };
+    key <AC11> { [ apostrophe,   quotedbl,   adiaeresis,    Adiaeresis   ] };
+
+    // Other
+    key <AB03> { [ c,            C,          ccedilla,      Ccedilla     ] };
+    key <AB06> { [ n,            N,          dead_circumflex             ] };
+    key <AB10> { [ slash,        question,   questiondown                ] };
+
+    key <AC01> { [ a,            A,          cent,          sterling     ] };
+    key <AC03> { [ d,            D,          cent,          degree       ] };
+    key <AC07> { [ j,            J,          guillemotleft, U2039        ] };
+    key <AC08> { [ k,            K,          guillemotright,U203A        ] };
+
+    key <AD08> { [ i,            I,          idiaeresis,    Idiaeresis   ] };
+    key <AD09> { [ o,            O,          dead_grave,    dead_acute   ] };
+    key <AD10> { [ p,            P,          dead_tilde,    dead_diaeresis ] };
+
+    key <AE01> { [ 1,            exclam,     exclamdown                  ] };
+
+    // Doesn't work as it still toggles capslock either way.
+    // This just adds that it also presses escape.
+    //key <CAPS> { [ Escape,       Escape,     Caps_Lock,     Caps_Lock    ] };
+    key <SPCE> { [ space,        space,      thinspace,     nobreakspace ] };
+
+    include "level3(ralt_switch)"
+};
