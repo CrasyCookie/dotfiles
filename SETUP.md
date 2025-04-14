@@ -2,16 +2,14 @@
 
 To setup the dotfiles, just copy or symlink them into `$HOME` and `$XDG_CONFIG_HOME`. To change `$XDG_CONFIG_HOME` from `$HOME/.config` look at the `files/.zshenv` file.
 ```sh
-$ ln -s ./files/.* "$HOME"
-$ ln -s ./config/* "$HOME/.config"
+$ ln -sr files/.* ~
+$ ln -sr config/* ~/.config
 ```
 alternatively
 ```sh
 $ cp -r ./files/.* "$HOME"
 $ cp -r ./config/* "$HOME/.config"
 ```
-
-*BUT* you have to copy `config/sway/`, `config/swaylock/` and `files/.xkb/` as sway and swaylock can't follow symlinks.
 
 Screenshots (grim+slurp) are stored in `xdg-user-dir PICTURES`, take a look at `xdg-user-dirs-update(1)` on how to change it.
 ```sh
