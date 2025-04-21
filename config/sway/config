@@ -17,7 +17,7 @@ set $right l
 # Preferred app launcher and terminal
 set $term alacritty
 set $webbrowser librewolf
-set $extra thunderbird
+set $extra ""
 set $resources "alacritty -T 'Resource manager' -e 'top'"
 set $menu bemenu-run -ip 'run'
 set $wallpaper "~/solarized-gentoo-wallpapers/optimisation-customisation-efficiency/png/gentoo-solarized-optimisation-customisation-efficiency.png"
@@ -254,7 +254,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while swaybarcmd; do sleep 3; done
+    status_command exec swaybarcmd
 
     colors {
         # Solarized light

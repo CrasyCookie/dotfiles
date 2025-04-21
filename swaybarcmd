@@ -1,22 +1,26 @@
 #!/bin/sh
 
-#SSID="$(iw dev | grep ssid | awk '{print $2}')"
-SSID="$(wpa_cli bss 0 | sed -En 's/^ssid=(.*)$/\1/pm')"
-IP_ADDR="$(ifconfig | grep broadcast | awk '{print $2}')"
-[ -z "$SSID" -a -z "$IP_ADDR" ] || INET_INFO="$([ -n "$SSID" ] && echo "$SSID ")$([ -n $IP_ADDR ] && echo "($IP_ADDR) ")- "
+while true; do
+    #SSID="$(iw dev | grep ssid | awk '{print $2}')"
+    SSID="$(wpa_cli bss 0 | sed -En 's/^ssid=(.*)$/\1/pm')"
+    IP_ADDR="$(ifconfig | grep broadcast | awk '{print $2}')"
+    [ -z "$SSID" -a -z "$IP_ADDR" ] || INET_INFO="$([ -n "$SSID" ] && echo "$SSID ")$([ -n $IP_ADDR ] && echo "($IP_ADDR) ")- "
 
-BRIGHTNESS="$(xbacklight -get 2>/dev/null)"
-VOLUME="$(wpctl get-volume @DEFAULT_SINK@ 2>/dev/null)"
-MISC_INFO="$([ -n "$VOLUME" ] && echo "$VOLUME% ")$([ -n $BRIGHTNESS ] && echo "Brightness: $BRIGHTNESS% ")- "
+    BRIGHTNESS="$(xbacklight -get 2>/dev/null)"
+    VOLUME="$(wpctl get-volume @DEFAULT_SINK@ 2>/dev/null)"
+    MISC_INFO="$([ -n "$VOLUME" ] && echo "$VOLUME% ")$([ -n $BRIGHTNESS ] && echo "Brightness: $BRIGHTNESS% ")- "
 
-CHARGE_PERCENTAGE="$(cat /sys/class/power_supply/BAT0/capacity 2>/dev/null)"
-CHARGING_STATUS="$(cat /sys/class/power_supply/BAT0/status 2>/dev/null)"
-[ -z "$CHARGE_PERCENTAGE" -a -z "$CHARGING_STATUS" ] || BATTERY_INFO="$([ -n "$CHARGE_PERCENTAGE" ] && echo "$CHARGE_PERCENTAGE% ")$([ -n $CHARGING_STATUS ] && echo "($CHARGING_STATUS) ")- "
+    CHARGE_PERCENTAGE="$(cat /sys/class/power_supply/BAT0/capacity 2>/dev/null)"
+    CHARGING_STATUS="$(cat /sys/class/power_supply/BAT0/status 2>/dev/null)"
+    [ -z "$CHARGE_PERCENTAGE" -a -z "$CHARGING_STATUS" ] || BATTERY_INFO="$([ -n "$CHARGE_PERCENTAGE" ] && echo "$CHARGE_PERCENTAGE% ")$([ -n $CHARGING_STATUS ] && echo "($CHARGING_STATUS) ")- "
 
 
-#       1 2 3 4
-printf '%s%s%s%s\n' \
-    "$MISC_INFO" \
-    "$INET_INFO" \
-    "$BATTERY_INFO" \
-    "$(date +'%Y-%m-%d %X' 2>/dev/null)"
+    #       1 2 3 4
+    printf '%s%s%s%s\n' \
+        "$MISC_INFO" \
+        "$INET_INFO" \
+        "$BATTERY_INFO" \
+        "$(date +'%Y-%m-%d %X' 2>/dev/null)"
+
+    sleep 3
+done
