@@ -24,6 +24,7 @@ xkb_symbols "basic" {
     key <AC07> { [ j,            J,          guillemotleft, U2039        ] };
     key <AC08> { [ k,            K,          guillemotright,U203A        ] };
 
+    key <AD04> { [ r,            R,          copyright,     trademark     ] };
     key <AD05> { [ t,            T,          thorn,         Thorn        ] };
     key <AD08> { [ i,            I,          idiaeresis,    Idiaeresis   ] };
     key <AD09> { [ o,            O,          dead_grave,    dead_acute   ] };
