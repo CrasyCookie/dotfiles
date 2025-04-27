@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# DEPRECATED
+# I've ported this to C++ and will
+# not be actively maintaining this
+# mess of a shell script.
+# See:
+# https://github.com/CrasyCookie/swaybarcmd
+
 while true; do
     #SSID="$(iw dev | grep ssid | awk '{print $2}')"
     SSID="$(wpa_cli bss 0 | sed -En 's/^ssid=(.*)$/\1/pm')"
