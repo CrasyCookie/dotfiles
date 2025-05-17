@@ -8,6 +8,8 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
 
+alias gsoft='ssh soft-serve --'
+
 # %n = user
 # %m = hostname
 # %d = cwd
