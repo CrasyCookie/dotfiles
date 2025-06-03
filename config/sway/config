@@ -233,11 +233,11 @@ bindsym --locked XF86MonBrightnessDown exec xbacklight -dec 3
 bindsym --locked XF86MonBrightnessUp exec xbacklight -inc 3
 # Screenshots
 # Copy to clipboard
-bindsym $mod+P exec grim -cg "$(slurp)" - | wl-copy
-bindsym $mod2+P exec grim -cg "$(slurp)" - | wl-copy
+bindsym $mod+P exec grim -cg "$(slurp -d)" - | wl-copy
+bindsym $mod2+P exec grim -cg "$(slurp -d)" - | wl-copy
 # Save to file (~/Pictures/Screenshots)
-bindsym $mod+Shift+P exec grim -cg "$(slurp)" $screenshotDirectory
-bindsym $mod2+Shift+P exec grim -cg "$(slurp)" $screenshotDirectory
+bindsym $mod+Shift+P exec grim -cg "$(slurp -d)" $screenshotDirectory
+bindsym $mod2+Shift+P exec grim -cg "$(slurp -d)" $screenshotDirectory
 
 # Window colours:
 # Read `man 5 sway` for more information about this section.
@@ -269,6 +269,11 @@ bar {
 # Lock the computer when entering sleep (suspending)
 exec swayidle -w before-sleep "swaylock"
 # Start pipewire
-exec gentoo-pipewire-launcher restart &
+exec gentoo-pipewire-launcher restart
+#exec gentoo-pipewire-launcher restart &
+# Start mako (notification daemon)
+exec mako
+# Start gnome-polkit
+exec_always --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 
 include /etc/sway/config.d/*

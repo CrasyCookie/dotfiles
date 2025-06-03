@@ -17,6 +17,7 @@ set hlsearch        " Highlighted search
 set tabstop=4       " Tabs indent four spaces
 set shiftwidth=4    " Tabs indent four spaces
 set expandtab       " Use spaces instead of tabs
+set number          " Show line numbers
 
 " Use the right amount of colours.
 let colourterm = system("echo \"$COLORTERM\"")
@@ -46,7 +47,8 @@ colorscheme solarized
 set colorcolumn=85
 
 " Force-save files using sudo
-cmap w!! w !doas tee > /dev/null %
+"cmap w!! w !doas tee > /dev/null %
+command ForceWrite w !doas tee > /dev/null %
 
 " Return to normal mode from visual- and insert mode when pressing AltGr+Alt
 " Is what I would do if it was POSSIBLE (or it is and I just don't know how to do it).
