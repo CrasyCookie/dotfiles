@@ -2,7 +2,7 @@
 // This keyboard layout is in
 // the public domain, CC0.
 partial alphanumeric_keys
-xkb_symbols "basic" {
+xkb_symbols "us_custom" {
 
     include "us(basic)"
     include "eurosign(e)"
@@ -32,9 +32,10 @@ xkb_symbols "basic" {
 
     key <AE01> { [ 1,            exclam,     exclamdown                  ] };
 
-    // Doesn't work as it still toggles capslock either way.
-    // This just adds that it also presses escape.
-    //key <CAPS> { [ Escape,       Escape,     Caps_Lock,     Caps_Lock    ] };
+    // Swap escape and capslock
+    key <ESC>  { [ Caps_Lock ] };
+    key <CAPS> { [ Escape ] };
+
     key <SPCE> { [ space,        space,      thinspace,     nobreakspace ] };
 
     include "level3(ralt_switch)"
