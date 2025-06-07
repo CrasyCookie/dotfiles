@@ -11,5 +11,10 @@ export XDG_CACHE_HOME="$HOME/.cache/"
 export XDG_STATE_HOME="$HOME/.local/state/"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
 
+# Enable/disable shared history
+#export HISTFILE="$ZDOTDIR/.histfile"
+#export HISTSIZE=5000
+#export SAVEHIST=5000
+
 # Comment to disable loading the colourscheme
 export TTY_COLOURSCHEME="$ZDOTDIR/solarized-tty/solarized-colourscheme.sh"

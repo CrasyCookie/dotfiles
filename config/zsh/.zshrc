@@ -8,7 +8,7 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
 
-alias gsoft='ssh soft-serve --'
+alias cal="cal -y -c 4"
 
 # %n = user
 # %m = hostname
@@ -32,15 +32,21 @@ setopt always_to_end
 setopt complete_aliases
 # Try to correct misspellings in commands
 setopt correct
-# Don't add consecutive duplicate commands to history
-setopt hist_ignore_dups
 # Allow comments in interactive shells
 setopt interactive_comments
 # Print out if a command had a non-zero exit status
 setopt print_exit_value
+# Don't add consecutive duplicate commands to history
+setopt hist_ignore_dups
+# Share history between sessions
+#setopt share_history
 
 # Load the new completion system
 autoload -U compinit; compinit
+
+# Start in vi normal mode (vicmd)
+#zle-line-init() { zle -K vicmd }
+#zle -N zle-line-init
 
 # Set fully case-insensitive completion
 #zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -48,5 +54,10 @@ autoload -U compinit; compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # see zshcompsys(1)
 
+source "$ZDOTDIR/zsh-vi-mode/zsh-vi-mode.zsh"
+
+ZSH_AUTOSUGGEST_STRATEGY="completion"
+source "$ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
 # Load the TTY colourscheme if the variable is set
-[ -n "$TTY_COLOURSCHEME" ] && . "$TTY_COLOURSCHEME"
+[ -n "$TTY_COLOURSCHEME" ] && source "$TTY_COLOURSCHEME"
