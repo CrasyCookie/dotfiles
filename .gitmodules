@@ -4,3 +4,9 @@
 [submodule "config/vim/pack/colourscheme/start/vim-colors-solarized"]
 	path = config/vim/pack/colourscheme/start/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized
+[submodule "config/zsh/zsh-autosuggestions"]
+	path = config/zsh/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "config/zsh/zsh-vi-mode"]
+	path = config/zsh/zsh-vi-mode
+	url = https://github.com/jeffreytse/zsh-vi-mode

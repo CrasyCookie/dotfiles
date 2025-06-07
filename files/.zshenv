@@ -21,5 +21,10 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Enable/disable shared history
+#export HISTFILE="$ZDOTDIR/.histfile"
+#export HISTSIZE=5000
+#export SAVEHIST=5000
+
 # Comment to disable loading the colourscheme
 export TTY_COLOURSCHEME="$ZDOTDIR/solarized-tty/solarized-colourscheme.sh"
