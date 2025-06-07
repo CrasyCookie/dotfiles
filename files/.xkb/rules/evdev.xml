@@ -1,0 +1,10 @@
+<layout>
+  <configItem>
+    <name>us_custom</name>
+    <shortDescription>usc</shortDescription>
+    <description>English, Swedish (International)</description>
+    <languageList>
+      <iso639Id>eng</iso639Id>
+    </languageList>
+  </configItem>
+</layout>
