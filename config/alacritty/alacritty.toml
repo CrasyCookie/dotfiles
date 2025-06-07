@@ -11,7 +11,7 @@ NEW_TERMINAL_SESSION = "true"
 dynamic_title = true
 [font]
 # Font size, default 11.25
-#size = 11.25
+size = 11.25
 normal = {family = "Noto Sans Mono"}
 offset = {x = 0, y = -4}
 [terminal]

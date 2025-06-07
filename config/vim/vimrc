@@ -21,12 +21,13 @@ set number          " Show line numbers
 
 " Use the right amount of colours.
 let colourterm = system("echo \"$COLORTERM\"")
+let term = system("echo \"$TERM\"")
 
 " =~ is a regex search, =~? is a case insensitive version.
 if colourterm =~? "truecolor" || colourterm =~? "24bit"
     set t_Co=256
     "set termguicolors
-elseif colourterm =~? "256"
+elseif colourterm =~? "256" || term =~? "256"
     set t_Co=256
     let g:solarized_termcolors=256
 else
@@ -45,6 +46,8 @@ set background=light
 
 colorscheme solarized
 set colorcolumn=85
+
+set guifont=Noto\ Mono\ 11
 
 " Force-save files using sudo
 "cmap w!! w !doas tee > /dev/null %
