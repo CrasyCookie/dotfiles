@@ -41,7 +41,7 @@ elseif colourterm =~? "256"
 else
     set t_Co=16
     let g:solarized_termcolors=16
-    set background=dark
+    "set background=dark
 endif
 
 colorscheme solarized
