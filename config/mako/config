@@ -1,0 +1,26 @@
+# Mako configuration file
+# See man 5 mako
+
+max-history=10
+sort=-priority
+#include=~/path/to/file
+
+#on-button-left=invoke-default-action
+on-button-middle=dismiss-all
+#on-button-right=dismiss
+
+font=NotoSansMono normal 11.25
+
+# Solarized light colourscheme
+background-color=#fdf6e3
+text-color=#657b83
+border-color=#eee8d5
+
+# Solarized light colourscheme, 80% transparency
+#background-color=#fdf6e3CD
+#text-color=#657b83CD
+#border-color=#eee8d5CD
+
+
+[urgency=high]
+ignore-timeout=1

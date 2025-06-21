@@ -19,22 +19,6 @@ set shiftwidth=4    " Tabs indent four spaces
 set expandtab       " Use spaces instead of tabs
 set number          " Show line numbers
 
-" Use the right amount of colours.
-let colourterm = system("echo \"$COLORTERM\"")
-let term = system("echo \"$TERM\"")
-
-" =~ is a regex search, =~? is a case insensitive version.
-if colourterm =~? "truecolor" || colourterm =~? "24bit"
-    set t_Co=256
-    "set termguicolors
-elseif colourterm =~? "256" || term =~? "256"
-    set t_Co=256
-    let g:solarized_termcolors=256
-else
-    set t_Co=16
-    let g:solarized_termcolors=16
-endif
-
 " If it's between 22-5'o clock UTC set it to dark mode.
 "let hourtime = system("date +%H")
 "if hourtime >= 22 || hourtime <= 5
@@ -43,6 +27,22 @@ endif
 "    set background=light
 "endif
 set background=light
+
+" Use the right amount of colours.
+let colourterm = system("echo \"$COLORTERM\"")
+
+" =~ is a regex search, =~? is case insensitive.
+if colourterm =~? "truecolor" || colourterm =~? "24bit"
+    set t_Co=256
+    "set termguicolors
+elseif colourterm =~? "256"
+    set t_Co=256
+    let g:solarized_termcolors=256
+else
+    set t_Co=16
+    let g:solarized_termcolors=16
+    set background=dark
+endif
 
 colorscheme solarized
 set colorcolumn=85

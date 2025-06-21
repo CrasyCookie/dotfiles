@@ -8,7 +8,7 @@
 set $mod Mod4
 set $mod2 Print
 # See xdg-user-dir(1) and xdg-user-dirs-update(1)
-set $screenshotDirectory "$(xdg-user-dir PICTURES)/screenshot_$(date +"%Y%m%d%H%M%S").png"
+set $screenshotDirectory "$(xdg-user-dir PICTURES || echo "$HOME/Pictures/")/Screenshots/screenshot_$(date +"%Y%m%d%H%M%S").png"
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -17,10 +17,12 @@ set $right l
 # Preferred app launcher and terminal
 set $term alacritty
 set $webbrowser librewolf
-set $extra ""
 set $resources "alacritty -T 'Resource manager' -e 'top'"
-set $menu bemenu-run -ip 'run'
-set $wallpaper "~/solarized-gentoo-wallpapers/optimisation-customisation-efficiency/png/gentoo-solarized-optimisation-customisation-efficiency.png"
+#set $menu bemenu-run -ip 'run'
+set $menu fuzzel
+set $menu2 wofi -S run
+# Symlink to ~/Pictures/solarized-gentoo-wallpapers/optimisation-customisation-efficiency/gentoo-solarized-optimisation-customisation-efficiency.png
+set $wallpaper "~/Pictures/Desktop_background"
 
 ### Output configuration
 output * {
@@ -53,10 +55,6 @@ bindsym $mod2+Return exec $term
 bindsym $mod+i exec $webbrowser
 bindsym $mod2+i exec $webbrowser
 
-# Start a email client, calendar etc.
-bindsym $mod+o exec $extra
-bindsym $mod2+o exec $extra
-
 # Show a system resource manager
 bindsym $mod+m exec $resources
 bindsym $mod2+m exec $resources
@@ -72,6 +70,8 @@ bindsym $mod2+Shift+q kill
 # Start your launcher
 bindsym $mod+d exec $menu
 bindsym $mod2+d exec $menu
+bindsym $mod+Shift+d exec $menu2
+bindsym $mod2+Shift+d exec $menu2
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -231,6 +231,7 @@ bindsym --locked XF86AudioMicMute exec wpctl set-mute @DEFAULT_SOURCE@ toggle
 # Special keys to adjust brightness via acpibacklight/xbacklight
 bindsym --locked XF86MonBrightnessDown exec xbacklight -dec 3
 bindsym --locked XF86MonBrightnessUp exec xbacklight -inc 3
+
 # Screenshots
 # Copy to clipboard
 bindsym $mod+P exec grim -cg "$(slurp -d)" - | wl-copy
@@ -238,6 +239,12 @@ bindsym $mod2+P exec grim -cg "$(slurp -d)" - | wl-copy
 # Save to file (~/Pictures/Screenshots)
 bindsym $mod+Shift+P exec grim -cg "$(slurp -d)" $screenshotDirectory
 bindsym $mod2+Shift+P exec grim -cg "$(slurp -d)" $screenshotDirectory
+
+# Notification control
+bindsym $mod+o exec makoctl dismiss --all
+bindsym $mod+Shift+o exec makoctl dismiss
+bindsym $mod2+o exec makoctl dismiss --all
+bindsym $mod2+Shift+o exec makoctl dismiss
 
 # Window colours:
 # Read `man 5 sway` for more information about this section.
@@ -247,32 +254,50 @@ client.focused_inactive #93a1a1 #fdf6e3 #657b83
 client.unfocused #eee8d5 #fdf6e3 #657b83
 font pango:NotoSansMono 10
 
+# Title bar
+#
+# Disable the title bar
+font pango:NotoSansMono 0.001
+titlebar_border_thickness 0
+titlebar_padding 0
+
 # Status Bar:
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
 
+    swaybar_command waybar
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command exec swaybarcmd
+    #status_command exec swaybarcmd
 
-    colors {
-        # Solarized light
-        statusline #657b83
-        background #fdf6e3
-        focused_workspace #eee8d5 #eee8d5 #586e75
-        active_workspace #eee8d5 #fdf6e300 #93a1a1
-        inactive_workspace #fdf6e300 #fdf6e300 #93a1a1
-    }
+    #colors {
+    #    # Solarized light
+    #    statusline #657b83
+    #    background #fdf6e3
+    #    focused_workspace #eee8d5 #eee8d5 #586e75
+    #    active_workspace #eee8d5 #fdf6e300 #93a1a1
+    #    inactive_workspace #fdf6e300 #fdf6e300 #93a1a1
+    #}
 }
+
+# Disable xwayland completely
+xwayland disable
 
 # Lock the computer when entering sleep (suspending)
 exec swayidle -w before-sleep "swaylock"
+# 5 minutes
+exec swayidle -w timeout 300 "swaylock"
+# 8 minutes
+exec swayidle -w timeout 480 "systemctl sleep"
+
 # Start pipewire
-exec gentoo-pipewire-launcher restart
-#exec gentoo-pipewire-launcher restart &
+# Currently done with systemd
+#exec gentoo-pipewire-launcher restart
+
 # Start mako (notification daemon)
 exec mako
+
 # Start gnome-polkit
 exec_always --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 
