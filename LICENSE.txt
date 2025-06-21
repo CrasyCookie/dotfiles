@@ -1,3 +1,5 @@
+0BSD license
+
 Copyright (C) 2024 CrasyCookie mail-forward@mail.crasycookie.com
 
 Permission to use, copy, modify, and/or distribute this software for
