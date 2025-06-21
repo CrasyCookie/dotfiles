@@ -21,7 +21,14 @@ alias cal="cal -y -c 4"
 # %F{#colour} %f = foreground colour
 # %K{#colour} %k = background colour
 
-PROMPT="---%F{green}%d%f:%F{blue}%B%n@%m%b%f
+# Use a red prompt for the superuser
+if [ "$(id -u)" -eq 0 ]; then
+    PROMPT_CWD_COLOUR="red"
+else
+    PROMPT_CWD_COLOUR="green"
+fi
+
+PROMPT="---%F{${PROMPT_CWD_COLOUR}}%d%f:%F{blue}%B%n@%m%b%f
 --%# "
 
 # ZSH Line Editor settings
