@@ -53,8 +53,15 @@ set guifont=Noto\ Mono\ 11
 "cmap w!! w !doas tee > /dev/null %
 command ForceWrite w !doas tee > /dev/null %
 
-" Return to normal mode from visual- and insert mode when pressing AltGr+Alt
-" Is what I would do if it was POSSIBLE (or it is and I just don't know how to do it).
+" Undotree
+nnoremap <C-u> :UndotreeToggle<CR>
+
+" Disable automatic C/C++ formatting
+let g:lsp_settings = {
+\   'clangd': {
+\       'disabled_capabilities': ['documentFormattingProvider'],
+\   },
+\}
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")

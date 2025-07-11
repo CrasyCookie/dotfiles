@@ -10,3 +10,18 @@
 [submodule "config/zsh/zsh-vi-mode"]
 	path = config/zsh/zsh-vi-mode
 	url = https://github.com/jeffreytse/zsh-vi-mode
+[submodule "config/vim/pack/plugins/start/vim-lsp"]
+	path = config/vim/pack/plugins/start/vim-lsp
+	url = https://github.com/prabirshrestha/vim-lsp
+[submodule "config/vim/pack/plugins/start/vim-lsp-settings"]
+	path = config/vim/pack/plugins/start/vim-lsp-settings
+	url = https://github.com/mattn/vim-lsp-settings
+[submodule "config/vim/pack/plugins/start/asyncomplete.vim"]
+	path = config/vim/pack/plugins/start/asyncomplete.vim
+	url = https://github.com/prabirshrestha/asyncomplete.vim
+[submodule "config/vim/pack/plugins/start/asyncomplete-lsp.vim"]
+	path = config/vim/pack/plugins/start/asyncomplete-lsp.vim
+	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim
+[submodule "config/vim/pack/plugins/start/undotree"]
+	path = config/vim/pack/plugins/start/undotree
+	url = https://github.com/mbbill/undotree
