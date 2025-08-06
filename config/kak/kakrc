@@ -1,0 +1,29 @@
+# Set the colourscheme
+colorscheme solarized-light
+
+# Set verbose mode, good for learning
+# set -add global autoinfo normal
+
+# Width of a tab, in spaces
+set-option global tabstop 8
+
+# Indent with 4 spaces
+# Set to 0 to use tabs instead
+set-option global indentwidth 4
+
+# Always keep five lines and seven columns displayed around the cursor
+set-option global scrolloff 5,7
+
+# Display the status bar on top
+# terminal_assistant can be either clippy, cat, dilbert or none
+set-option global ui_options terminal_assistant=none terminal_status_on_top=true
+
+# Display line numbers
+add-highlighter global/ number-lines -hlcursor
+
+# Softwrap long lines
+add-highlighter global/ wrap -word -indent -marker ">>>"
+
+# Clipboard management mappings
+map -docstring "yank the selection into the clipboard" global user y "<a-|> wl-copy<ret>"
+map -docstring "paste the clipboard" global user p "<a-!> wl-paste<ret>"
