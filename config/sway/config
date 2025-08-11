@@ -311,9 +311,9 @@ bar {
 xwayland disable
 
 # Lock the computer when entering sleep (suspending)
-exec swayidle -w before-sleep "swaylock"
+#exec swayidle -w before-sleep "swaylock"
 # 5 minutes
-exec swayidle -w timeout 300 "swaylock"
+#exec swayidle -w timeout 300 "swaylock"
 # 8 minutes
 exec swayidle -w timeout 480 "systemctl sleep"
 
