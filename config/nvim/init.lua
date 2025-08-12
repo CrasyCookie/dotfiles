@@ -6,7 +6,8 @@ vim.g.mapleader = " "
 -- Plugins
 
 vim.pack.add{
-    { src = "https://gitlab.com/HiPhish/resolarized.nvim" },
+    { src = "https://github.com/lifepillar/vim-solarized8" },
+    --{ src = "https://gitlab.com/HiPhish/resolarized.nvim" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
@@ -22,6 +23,7 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
     ensure_installed = {
+        "openscad-lsp",
         "css-lsp",
         "rust-analyzer",
         "gopls",
@@ -53,6 +55,7 @@ require("mini.bracketed").setup()
 require("mini.files").setup()
 require("mini.jump").setup()
 require("mini.trailspace").setup()
+require("mini.git").setup()
 require("mini.statusline").setup()
 
 --- mini.clue
@@ -125,13 +128,18 @@ vim.cmd.syntax("on")
 -- Load indentation rules and plugins according to the detected filetype
 vim.cmd.filetype({"plugin", "indent", "on"})
 
-vim.opt.number = true
+--vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
 vim.opt.showcmd = true
-vim.opt.scrolloff = 1
+vim.opt.scrolloff = 3
+--vim.opt.laststatus = 0
 
 vim.opt.showmatch = true
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -153,10 +161,14 @@ elseif TERM:find("linux") then
     vim.opt.background = "dark"
 end
 
-vim.cmd [[silent! colorscheme solarized]]
+vim.cmd [[silent! colorscheme solarized8]]
 vim.opt.colorcolumn = "80"
 
 -- Bindings
 
--- Toggle mini.files on <Leader>n
-vim.keymap.set("n", "<Leader>n", function() if not MiniFiles.close() then MiniFiles.open() end end)
+-- Toggle mini.files on <Leader>o
+vim.keymap.set("n", "<Leader>o", function() if not MiniFiles.close() then MiniFiles.open() end end)
+
+-- Switch buffers
+vim.keymap.set("n", "<Leader>n", vim.cmd.bnext)
+vim.keymap.set("n", "<Leader>p", vim.cmd.bprev)
