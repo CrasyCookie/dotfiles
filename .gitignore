@@ -1,3 +1,5 @@
 *.netrwhist
 *.zcompdump
 *.histfile
+
+config/vim/pack
