@@ -1,0 +1,29 @@
+if [ -z "$SOLARIZED" ]; then
+    export SOLARIZED="light"
+fi
+
+# XDG directories
+export XDG_CONFIG_HOME="$HOME/.config/"
+export XDG_DATA_HOME="$HOME/.local/share/"
+export XDG_CACHE_HOME="$HOME/.cache/"
+export XDG_STATE_HOME="$HOME/.local/state/"
+
+# Set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Comment to disable loading the colourscheme
+export TTY_COLOURSCHEME="$XDG_CONFIG_DIR/yash/solarized-tty/solarized-colourscheme.sh"
+
+# Do a fastfetch if the command is available
+if command -v fastfetch 2>&1 >/dev/null; then
+    printf "\n"
+    fastfetch
+    printf "\n"
+fi
+
+# Print the Message Of The Day on the tty
+if [ -f /etc/motd -a "$TERM" = "linux" ]; then
+    cat /etc/motd
+fi

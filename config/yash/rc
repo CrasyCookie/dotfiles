@@ -1,0 +1,61 @@
+# $XDG_CONFIG_HOME/yash/rc
+
+# For reference:
+# https://magicant.github.io/yash/doc/
+
+# Firstly, load the common customization script.
+. --autoload --no-alias initialization/common
+
+alias cal="cal -y -c 4"
+alias mpv="mpv --save-position-on-quit"
+alias emacs="emacs --no-window-system"
+
+bindkey --vi-insert '\^L' clear-and-redraw-all
+bindkey --vi-command '\^L' clear-and-redraw-all
+
+bindkey --vi-insert '\^K' accept-prediction
+bindkey --vi-command '\^K' accept-prediction
+
+# Uncomment to enable direnv support. (jq required)
+_update_direnv() {
+  eval "$(
+    direnv export json |
+    jq -r 'to_entries | .[] |
+    if .value == null then
+      @sh "unset \(.key)"
+    else
+      @sh "export \(.key)=\(.value)"
+    end'
+  )"
+}
+YASH_AFTER_CD=("$YASH_AFTER_CD" '_update_direnv')
+
+set -o vi
+set -o hist-space
+set -o ignore-eof
+set -o le-visible-bell
+
+# https://magicant.github.io/yash/doc/interact.html#prompt
+# https://magicant.github.io/yash/doc/params.html
+# https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
+
+if [ "$(id -u)" -eq 0 ]; then
+    PROMPT_CWD_COLOUR="\fr"
+else
+    PROMPT_CWD_COLOUR="\fg"
+fi
+
+# Leftside prompt, multiline
+# git/vcs (conditional) | user@hostname | exit-status (conditional) | cwd (tilde-expanded) | shell-level (nesting level)
+YASH_PS1='[ \fc.${_vcs_info:+${_vcs_info} }${PROMPT_CWD_COLOUR}.${LOGNAME}@${HOSTNAME} \fd.${{?/0/}:+\fr.$? }\fb.${PWD/#$HOME/\~} \fy.${SHLVL} \fd.]\n\$ '
+
+# Rightside prompt
+# This is commented out due to it appearing on the second
+# line instead of the first.
+#YASH_PS1R="[\fr.$(date '+%H:%M')\fd.]"
+
+# Unset the default rightside prompt (vcs)
+unset YASH_PS1R
+
+# Load the TTY colourscheme if the variable is set
+[ -n "$TTY_COLOURSCHEME" ] && source "$TTY_COLOURSCHEME"
