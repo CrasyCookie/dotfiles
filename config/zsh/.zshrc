@@ -9,6 +9,8 @@ alias mv='mv -i'
 alias cp='cp -i'
 
 alias cal="cal -y -c 4"
+alias mpv="mpv --save-position-on-quit"
+alias emacs="emacs --no-window-system"
 
 # %n = user
 # %m = hostname

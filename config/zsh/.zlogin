@@ -1,5 +1,5 @@
 # ~/.zlogin
-if command -v fastfetch; then
+if command -v fastfetch 2>&1 >/dev/null; then
     printf "\n"
     fastfetch
     printf "\n"
