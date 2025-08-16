@@ -58,4 +58,4 @@ YASH_PS1='[ \fc.${_vcs_info:+${_vcs_info} }${PROMPT_CWD_COLOUR}.${LOGNAME}@${HOS
 unset YASH_PS1R
 
 # Load the TTY colourscheme if the variable is set
-[ -n "$TTY_COLOURSCHEME" ] && source "$TTY_COLOURSCHEME"
+[ -n "$TTY_COLOURSCHEME" ] && . "$TTY_COLOURSCHEME"
