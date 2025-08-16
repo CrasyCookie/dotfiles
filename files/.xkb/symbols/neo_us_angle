@@ -1,0 +1,82 @@
+// Made in 2025 by CrasyCookie
+// This keyboard layout is in
+// the public domain, CC0.
+partial alphanumeric_keys
+xkb_symbols "basic" {
+    name[Group1] = "English, Swedish (qwerty) Wide-Angle-mod";
+
+    key <TLDE> {[ grave,            asciitilde                                      ]};
+    key <AE01> {[ 1,                exclam,         currency,           exclamdown  ]};
+    key <AE02> {[ 2,                at,             sterling                        ]};
+    key <AE03> {[ 3,                numbersign,     EuroSign                        ]};
+    key <AE04> {[ 4,                dollar,         cent                            ]};
+    key <AE05> {[ 5,                percent,        degree                          ]};
+    key <AE06> {[ 6,                asciicircum                                     ]};
+    key <AE07> {[ 7,                ampersand                                       ]};
+    key <AE08> {[ 8,                asterisk                                        ]};
+    key <AE09> {[ 9,                parenleft                                       ]};
+    key <AE10> {[ 0,                parenright                                      ]};
+    key <AE11> {[ minus,            underscore,     endash,             emdash      ]};
+    key <AE12> {[ equal,            plus,           notsign,            plusminus   ]};
+
+    key <AD01> {[ q,                Q                                               ]};
+    key <AD02> {[ w,                W                                               ]};
+    key <AD03> {[ e,                E                                               ]};
+    key <AD04> {[ r,                R,              copyright,          trademark   ]};
+    key <AD05> {[ t,                T,              thorn,              Thorn       ]};
+    key <AD06> {[ bracketleft,      braceleft                                       ]};
+    key <AD07> {[ y,                Y                                               ]};
+    key <AD08> {[ u,                U                                               ]};
+    key <AD09> {[ i,                I,              dead_diaeresis                  ]};
+    key <AD10> {[ o,                O,              oslash,             Oslash      ]};
+    key <AD11> {[ p,                P,              dead_tilde                      ]};
+    key <AD12> {[ slash,            question,       bar,                questiondown]};
+
+    key <AC01> {[ a,                A                                               ]};
+    //key <AC01> {[ f,                F                                               ]};
+    key <AC02> {[ s,                S,              ssharp,             Ssharp      ]};
+    key <AC03> {[ d,                D                                               ]};
+    key <AC04> {[ f,                F                                               ]};
+    //key <AC04> {[ a,                A,              ae,                 AE          ]};
+    key <AC05> {[ g,                G                                               ]};
+    key <AD06> {[ bracketright,     braceright                                      ]};
+    key <AC07> {[ h,                H                                               ]};
+    // U2039 = single guillemetleft
+    key <AC08> {[ j,                J,              guillemotleft,      U2039       ]};
+    key <AC09> {[ k,                K,              odiaeresis,         Odiaeresis  ]};
+    key <AC10> {[ l,                L,              aring,              Aring       ]};
+    key <AC11> {[ semicolon,        colon,          adiaeresis,         Adiaeresis  ]};
+    key <AC12> {[ apostrophe,       quotedbl,       dead_grave,         dead_acute  ]};
+    key <BKSL> {[ backslash,        bar ]};
+
+    key <LSGT> {[ z,                Z                                               ]};
+    key <AB01> {[ x,                X                                               ]};
+    key <AB02> {[ c,                C,              ccedilla,           Ccedilla    ]};
+    key <AB03> {[ v,                V ]};
+    key <AB04> {[ b,                B,              GREEK_BETA,         GREEK_beta  ]};
+    key <AB05> {[ Control_L                                                         ]};
+    key <AB06> {[ backslash,        bar                                             ]};
+    key <AB07> {[ n,                N,              dead_circumflex                 ]};
+    // U203A = single guillemetright
+    key <AB08> {[ m,                M,              guillemotright,     U203A       ]};
+    key <AB09> {[ comma,            less                                            ]};
+    key <AB10> {[ period,           greater,        ellipsis                        ]};
+
+    key <SPCE> {[ space,            space,          thinspace,          nobreakspace]};
+
+    key <ESC>  { [ Caps_Lock ] };
+    key <CAPS> { [ Escape ] };
+
+    include "level3(ralt_switch)"
+};
+
+partial alphanumeric_keys
+xkb_symbols "prsc-super" {
+    name[Group1] = "English, Swedish (qwerty) Wide-Angle-mod (PrintScreen->Super)";
+
+    include "basic"
+
+    key <PRSC> {[ Super_R ]};
+
+    include "level3(ralt_switch)"
+};
