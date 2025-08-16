@@ -325,7 +325,7 @@ exec swayidle -w timeout 480 "systemctl sleep"
 exec mako
 
 # Start wlsunset
-exec wlsunset -l 59.3 -L 18.0
+#exec wlsunset -S 08:00 -s 18:00 -d 0 -t 10000 -T 18000
 
 # Start gnome-polkit
 exec_always --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
