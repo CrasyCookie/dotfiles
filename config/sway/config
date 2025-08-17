@@ -76,6 +76,9 @@ bindsym alt+space exec $menu
 bindsym $mod+o exec $chatapp
 bindsym $mod2+o exec $chatapp
 
+bindsym $mod+bracketleft exec $EDITOR
+bindsym $mod2+bracketleft exec $EDITOR
+
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
 # Despite the name, also works for non-floating windows.
@@ -266,10 +269,10 @@ bindsym $mod+Shift+P exec grim -cg "$(slurp -d)" $screenshotDirectory
 bindsym $mod2+Shift+P exec grim -cg "$(slurp -d)" $screenshotDirectory
 
 # Notification control
-bindsym $mod+bracketleft exec makoctl dismiss --all
-bindsym $mod+Shift+bracketleft exec makoctl dismiss
-bindsym $mod2+bracketleft exec makoctl dismiss --all
-bindsym $mod2+Shift+bracketleft exec makoctl dismiss
+bindsym $mod+bracketright exec makoctl dismiss --all
+bindsym $mod+Shift+bracketright exec makoctl dismiss
+bindsym $mod2+bracketright exec makoctl dismiss --all
+bindsym $mod2+Shift+bracketright exec makoctl dismiss
 
 # Window colours:
 # Read `man 5 sway` for more information about this section.
