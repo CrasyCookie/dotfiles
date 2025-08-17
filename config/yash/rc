@@ -47,7 +47,7 @@ fi
 
 # Leftside prompt, multiline
 # git/vcs (conditional) | user@hostname | exit-status (conditional) | cwd (tilde-expanded) | shell-level (nesting level)
-YASH_PS1='[ \fc.${_vcs_info:+${_vcs_info} }${PROMPT_CWD_COLOUR}.${LOGNAME}@${HOSTNAME} \fd.${{?/0/}:+\fr.$? }\fb.${PWD/#$HOME/\~} \fy.${SHLVL} \fd.]\n\$ '
+YASH_PS1='[ \fc.${_vcs_info:+${_vcs_info} }${PROMPT_CWD_COLOUR}.${LOGNAME}@${HOSTNAME} ${{?/0/}:+\fr.$? }\fb.${PWD/#$HOME/\~} \fd.]\n\$ '
 
 # Rightside prompt
 # This is commented out due to it appearing on the second
