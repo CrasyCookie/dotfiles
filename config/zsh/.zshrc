@@ -12,26 +12,29 @@ alias cal="cal -y -c 4"
 alias mpv="mpv --save-position-on-quit"
 alias emacs="emacs --no-window-system"
 
-# %n = user
-# %m = hostname
-# %d = cwd
-# %~ = cwd + tilde HOME substitution
-# %T = 24h clock
-# %# = prompt (% or #)
-#
-# %B %b = bold
-# %F{#colour} %f = foreground colour
-# %K{#colour} %k = background colour
+# zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html
+
+# Load vcs_info and the new completion system
+autoload -Uz compinit vcs_info add-zsh-hook
 
 # Use a red prompt for the superuser
 if [ "$(id -u)" -eq 0 ]; then
-    PROMPT_CWD_COLOUR="red"
+    PROMPT_USER_COLOUR="red"
+    PROMPT_CHAR='#'
 else
-    PROMPT_CWD_COLOUR="green"
+    PROMPT_USER_COLOUR="green"
+    PROMPT_CHAR='$'
 fi
 
-PROMPT="---%F{${PROMPT_CWD_COLOUR}}%d%f:%F{blue}%B%n@%m%b%f
---%# "
+zstyle ':vcs_info:*' enable git cvs svn
+zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a] '
+zstyle ':vcs_info:*' formats '%s@%b '
+zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:%r'
+add-zsh-hook precmd vcs_info
+
+# git/vcs (conditional) | user@hostname | exit-status (conditional) | cwd (tilde-substituted)
+PROMPT='[ %F{cyan}${vcs_info_msg_0_}%F{$PROMPT_USER_COLOUR}%n@%m %F{red}${${?/0/}:+$? }%F{blue}%~ %f]
+${PROMPT_CHAR} '
 
 # ZSH Line Editor settings
 # ZLE options are underscore- and case-insensitive.
@@ -43,30 +46,22 @@ setopt complete_aliases
 setopt correct
 # Allow comments in interactive shells
 setopt interactive_comments
-# Print out if a command had a non-zero exit status
-setopt print_exit_value
 # Don't add consecutive duplicate commands to history
 setopt hist_ignore_dups
 # Share history between sessions
 #setopt share_history
+# Allow variable substitution in the prompt
+setopt prompt_subst
 
-# Load the new completion system
-autoload -U compinit; compinit
-
-# Start in vi normal mode (vicmd)
-#zle-line-init() { zle -K vicmd }
-#zle -N zle-line-init
-
+compinit
 # Set fully case-insensitive completion
 #zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # Set lower-to-uppercase-insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # see zshcompsys(1)
 
+# Load the zsh-vi-mode plugin.
 source "$ZDOTDIR/zsh-vi-mode/zsh-vi-mode.zsh"
-
-ZSH_AUTOSUGGEST_STRATEGY="completion"
-source "$ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # Load the TTY colourscheme if the variable is set
 [ -n "$TTY_COLOURSCHEME" ] && source "$TTY_COLOURSCHEME"
