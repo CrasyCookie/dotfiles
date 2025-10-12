@@ -3,7 +3,6 @@
 // the public domain, CC0.
 partial alphanumeric_keys
 xkb_symbols "us_custom" {
-
     include "us(basic)"
     include "eurosign(e)"
     include "eurosign(5)"
@@ -31,13 +30,16 @@ xkb_symbols "us_custom" {
     key <AD10> {[ p,            P,          dead_tilde,     dead_diaeresis  ]};
 
     key <AE01> {[ 1,            exclam,     exclamdown,     exclam          ]};
+    key <AE11> {[ dash,         underline,  endash,         emdash          ]};
 
     // Swap escape and capslock
-    key <ESC>  {[ Caps_Lock,    Caps_Lock,  Caps_Lock,      Caps_Lock       ]};
-    key <CAPS> {[ Escape,       Escape,     Escape,         Escape          ]};
+    // Currently done with kanata/kmonad instead.
+    //key <ESC>  {[ Caps_Lock,    Caps_Lock,  Caps_Lock,      Caps_Lock       ]};
+    //key <CAPS> {[ Escape,       Escape,     Escape,         Escape          ]};
 
     // Easier ctrl for emacs
-    key <LSGT> {[ Control_L, Control_L, Control_L, Control_L ]};
+    // Not working
+    //key <LSGT> {[ Control_L, Control_L, Control_L, Control_L ]};
 
     key <SPCE> {[ space,        space,      thinspace,      nobreakspace    ]};
 
