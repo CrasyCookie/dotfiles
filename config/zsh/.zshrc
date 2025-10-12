@@ -60,7 +60,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # see zshcompsys(1)
 
 # Load the zsh-vi-mode plugin.
-source "$ZDOTDIR/zsh-vi-mode/zsh-vi-mode.zsh"
+#source "$ZDOTDIR/zsh-vi-mode/zsh-vi-mode.zsh"
 
 # Load the TTY colourscheme if the variable is set
 [ -n "$TTY_COLOURSCHEME" ] && source "$TTY_COLOURSCHEME"

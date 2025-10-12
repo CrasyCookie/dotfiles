@@ -11,9 +11,19 @@ export XDG_CACHE_HOME="$HOME/.cache/"
 export XDG_STATE_HOME="$HOME/.local/state/"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
 
+# Package managers
+export GOPATH="$HOME/PackageManagers/go"
+
 # Set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+if [ -d "$HOME/.local/bin" ]; then
+    #echo "Adding $HOME/.local/bin to PATH"
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Set PATH so it includes the GOPATH binaries if it exists
+if [ -n "$GOPATH" ] && [ -d "$GOPATH/bin" ]; then
+    #echo "Adding $GOPATH/bin to PATH"
+    export PATH="$GOPATH/bin:$PATH"
 fi
 
 # Enable/disable shared history
