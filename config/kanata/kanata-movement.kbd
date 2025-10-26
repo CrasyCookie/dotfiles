@@ -1,0 +1,45 @@
+#| This is the kmonad defcfg statement
+(defcfg
+    input (device-file "/dev/input/by-id/usb-Raydium_Corporation_Raydium_Touch_System-event-if00")
+    output (uinput-sink "kmonad-keyboard")
+
+    ;; Reemit unhandled events instead of voiding them.
+    fallthrough true
+
+    ;; Set to true to enable command execution in KMonad
+    allow-cmd false
+
+    ;; Set the implicit around to 'around'
+    implicit-around around)
+|#
+
+(defcfg
+    ;; Commented out to use every keyboard available instead.
+    ;; linux-dev /dev/input/by-id/usb-Raydium_Corporation_Raydium_Touch_System-event-if00
+
+    process-unmapped-keys yes
+    log-layer-changes no
+)
+
+(defalias
+    mov  (layer-switch movement)
+    spc  (tap-hold 200 300 spc lctl)
+)
+
+;; 102d is the key to the right of left shift, with < and > signs
+(defsrc
+    u    i    o
+    j    k    l
+    102d esc  caps spc  prnt
+)
+
+(deflayer base
+    _    _    _
+    _    _    _
+    @mov caps esc  @spc lmet
+)
+
+(deflayer movement
+    pgup up   pgdn
+    left down rght
+    _    _    _    _    _)
