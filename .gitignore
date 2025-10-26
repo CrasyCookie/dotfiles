@@ -3,3 +3,9 @@
 *.histfile
 
 config/vim/pack
+
+# Usa a whitelist for the emacs folder
+config/emacs/*
+!config/emacs/*/
+
+!config/emacs/init.el
