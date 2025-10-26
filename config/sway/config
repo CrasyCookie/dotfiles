@@ -68,9 +68,11 @@ bindsym $mod+Shift+q kill
 bindsym $mod2+Shift+q kill
 
 # Start your launcher
-bindsym $mod+d exec $menu
-bindsym $mod2+d exec $menu
-bindsym alt+space exec $menu
+#bindsym $mod+d exec $menu
+#bindsym $mod2+d exec $menu
+#bindsym alt+space exec $menu
+bindsym $mod+space exec $menu
+bindsym $mod2+space exec $menu
 
 # Start a chatapp
 bindsym $mod+o exec $chatapp
@@ -185,12 +187,16 @@ bindsym $mod+f fullscreen
 bindsym $mod2+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
-bindsym $mod+Shift+space floating toggle
-bindsym $mod2+Shift+space floating toggle
+#bindsym $mod+Shift+space floating toggle
+#bindsym $mod2+Shift+space floating toggle
+bindsym $mod+Shift+d floating toggle
+bindsym $mod2+Shift+d floating toggle
 
 # Swap focus between the tiling area and the floating area
-bindsym $mod+space focus mode_toggle
-bindsym $mod2+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
+#bindsym $mod2+space focus mode_toggle
+bindsym $mod+d focus mode_toggle
+bindsym $mod2+d focus mode_toggle
 
 # Move focus to the parent container
 bindsym $mod+a focus parent
