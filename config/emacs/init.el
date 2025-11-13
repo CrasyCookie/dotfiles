@@ -65,6 +65,10 @@
 (use-package eglot
              :custom (eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider)))
 
+(use-package docker
+  :ensure t
+  :bind ("C-c d" . docker))
+
 ;; =======================
 ;; Customise the interface
 ;; =======================
@@ -73,10 +77,13 @@
 (tool-bar-mode -1)       ;; Disable the toolbar? Why??
 (tooltip-mode -1)        ;; Disable tooltips? Why???
 (set-fringe-mode 10)     ;; Give some breathing room? WHAT DOES THAT MEAN!?
+(setq inhibit-startup-screen t) ;; Remove the "About emacs" screen
 
 (menu-bar-mode -1)       ;; Disable the menu bar
 
-(setq calendar-week-start-day 1)
+(column-number-mode 1)   ;; Columns in the topbar
+
+(setq calendar-week-start-day 1) ;; Monday
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -161,6 +168,10 @@
 ;      emms-info-functions '(emms-info-native)
 ;      emms-show-format "Playing %s")
 
+;; Set *scratch* to org-mode instead of elisp evaluation
+(setq initial-major-mode 'org-mode)
+(setq initial-scratch-message "* Temporary notes\n\n")
+
 ;; =========================
 ;; Automatically added stuff
 ;; =========================
@@ -174,7 +185,7 @@
    '("0f1341c0096825b1e5d8f2ed90996025a0d013a0978677956a9e61408fcd2c77"
      default))
  '(package-selected-packages
-   '(ace-window doom-modeline doom-themes elfeed emacs-everywhere
+   '(ace-window devil doom-modeline doom-themes elfeed emacs-everywhere
 		emms-player-spotify emms-state empv go-mode json-mode
 		lua-mode markdown-mode org-modern swiper yaml-mode)))
 (custom-set-faces
