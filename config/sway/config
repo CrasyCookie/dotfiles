@@ -22,7 +22,7 @@ set $resources "alacritty -T 'Resource manager' -e 'top'"
 #set $menu bemenu-run -ip 'run'
 set $menu fuzzel
 # Symlink to ~/Pictures/solarized-gentoo-wallpapers/optimisation-customisation-efficiency/gentoo-solarized-optimisation-customisation-efficiency.png
-set $wallpaper "~/Pictures/Desktop_background"
+set $wallpaper "~/Media/Pictures/Desktop_background"
 
 ### Output configuration
 output * {
