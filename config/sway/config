@@ -318,6 +318,8 @@ bar {
 
 # Disable xwayland completely
 xwayland disable
+#xwayland force
+#xwayland enable
 
 # Lock the computer when entering sleep (suspending)
 #exec swayidle -w before-sleep "swaylock"
@@ -338,5 +340,7 @@ exec mako
 
 # Start gnome-polkit
 exec_always --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+
+#exec dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway DISPLAY
 
 include /etc/sway/config.d/*

@@ -13,6 +13,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
 
 # Package managers
 export GOPATH="$HOME/PackageManagers/go"
+export CARGO_HOME="$HOME/PackageManagers/cargo"
 
 # Set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ]; then
@@ -24,6 +25,12 @@ fi
 if [ -n "$GOPATH" ] && [ -d "$GOPATH/bin" ]; then
     #echo "Adding $GOPATH/bin to PATH"
     export PATH="$GOPATH/bin:$PATH"
+fi
+
+# Set PATH so it includes the CARGO_HOME binaries if it exists
+if [ -n "$CARGO_HOME" ] && [ -d "$CARGO_HOME/bin" ]; then
+    #echo "Adding $CARGO_HOME/bin to PATH"
+    export PATH="$CARGO_HOME/bin:$PATH"
 fi
 
 # Enable/disable shared history

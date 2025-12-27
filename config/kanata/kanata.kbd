@@ -1,31 +1,58 @@
 #| This is the kmonad defcfg statement
 (defcfg
-    input (device-file "/dev/input/by-id/usb-Raydium_Corporation_Raydium_Touch_System-event-if00")
-    output (uinput-sink "kmonad-keyboard")
+  input (device-file "/dev/input/by-id/usb-Raydium_Corporation_Raydium_Touch_System-event-if00")
+  output (uinput-sink "kmonad-keyboard")
 
-    ;; Reemit unhandled events instead of voiding them.
-    fallthrough true
+  ;; Reemit unhandled events instead of voiding them.
+  fallthrough true
 
-    ;; Set to true to enable command execution in KMonad
-    allow-cmd false
+  ;; Set to true to enable command execution in KMonad
+  allow-cmd false
 
-    ;; Set the implicit around to 'around'
-    implicit-around around)
+  ;; Set the implicit around to 'around'
+  implicit-around around)
 |#
 
 (defcfg
-    ;; Commented out to use every keyboard available instead.
-    ;; linux-dev /dev/input/by-id/usb-Raydium_Corporation_Raydium_Touch_System-event-if00
+  ;; Commented out to use every keyboard available instead.
+  ;; linux-dev /dev/input/by-id/usb-Raydium_Corporation_Raydium_Touch_System-event-if00
 
-    process-unmapped-keys yes
-    log-layer-changes no
+  process-unmapped-keys yes
+  log-layer-changes yes
 )
 
 (defalias
-    spc (tap-hold 200 300 spc lctl))
+  ;; This workaround is a horrible way to use lshift+spc+rshift key chording, but it's the only way.
+  swo1 (multi lsft (layer-while-held switch-on-layer-1))
+  swo2 (multi rsft (layer-while-held switch-on-layer-2))
+  swf1 (multi lsft (layer-while-held switch-off-layer-1))
+  swf2 (multi rsft (layer-while-held switch-off-layer-2))
+
+  turn-on-passthrough (layer-switch passthrough)
+  turn-off-passthrough (layer-switch base)
+
+  spc (tap-hold 200 300 spc lctl))
 
 (defsrc
-    esc  caps spc)
+  esc caps lsft spc rsft)
 
 (deflayer base
-    caps esc  @spc)
+  caps esc @swo1 @spc @swo1)
+
+;; Turning on passthrough
+(deflayer switch-on-layer-1
+  _ _ @swo2 @spc @swo2)
+
+(deflayer switch-on-layer-2
+  _ _ _ @turn-on-passthrough _)
+
+;; Turning off passthrough
+(deflayer switch-off-layer-1
+  _ _ @swf2 @spc @swf2)
+
+(deflayer switch-off-layer-2
+  _ _ _ @turn-off-passthrough _)
+
+;; Used to toggle the functionality of kanata.
+(deflayer passthrough
+  esc caps @swf1 spc @swf1)
