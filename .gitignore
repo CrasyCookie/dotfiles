@@ -9,3 +9,4 @@ config/emacs/*
 !config/emacs/*/
 
 !config/emacs/init.el
+!config/emacs/configs/*

@@ -1,0 +1,89 @@
+
+;; ========================================
+;;  This file contains package management
+;; ========================================
+
+(provide 'packages)
+(require 'package)
+
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			 ("org" . "https://orgmode.org/elpa/")
+			 ("elpa" . "https://elpa.gnu.org/packages/")))
+
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; Initialise use-package on non-linux platforms
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+;; == use-package things ==
+
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+(use-package doom-themes)
+
+(use-package ace-window)
+
+(use-package ivy
+  :diminish
+  :bind (("C-s" . swiper)
+	 :map ivy-minibuffer-map
+	 ("TAB" . ivy-alt-done)
+	 ("C-l" . ivy-alt-done)
+	 ("C-j" . ivy-next-line)
+	 ("C-k" . ivy-previous-line)
+	 :map ivy-switch-buffer-map
+	 ("C-k" . ivy-previous-line)
+         ("C-l" . ivy-done)
+	 ("C-d" . ivy-switch-buffer-kill)
+	 :map ivy-reverse-i-search-map
+	 ("C-k" . ivy-previous-line)
+	 ("C-d" . ivy-reverse-i-search-kill))
+  :config
+  (ivy-mode 1))
+(ivy-mode 1)
+
+(use-package swiper :ensure t)
+
+(use-package org-modern)
+
+(use-package elfeed)
+
+(use-package emms)
+(use-package emms-player-spotify)
+(use-package emms-state)
+
+;(use-package emacs-everywhere)
+
+;; I hate clangd I hate clangd I hate clangd
+(use-package eglot
+             :custom (eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider)))
+
+(use-package docker
+  :ensure t
+  :bind ("C-c d" . docker))
+
+(use-package devil)
+(global-devil-mode t)
+
+;; Required for org-node
+(use-package org-mem
+  :defer t
+  :config
+  ;; At least one of these two is needed
+  (setq org-mem-do-sync-with-org-id t)
+  (setq org-mem-watch-dirs
+        (list "~/Notes")) ;; Configure me
+  (org-mem-updater-mode))
+
+(use-package org-node
+  :init
+  ;; Optional key bindings
+  (keymap-global-set "M-o" org-node-global-prefix-map)
+  (with-eval-after-load 'org
+    (keymap-set org-mode-map "M-o" org-node-org-prefix-map))
+  :config
+  (org-node-cache-mode))

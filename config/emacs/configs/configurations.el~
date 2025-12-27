@@ -1,0 +1,32 @@
+;; ========================================
+;;  This file contains some configurations
+;; ========================================
+
+(provide 'configurations)
+
+;; == Values and formats ==
+
+(setq display-time-format "%H:%M"
+      display-time-load-average-threshold 0.0)
+
+(setq calendar-week-start-day 1) ;; Monday
+
+;; == Interface ==
+
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(tooltip-mode 1)
+
+;; Margins on the screen:
+;;(set-fringe-mode 10) ;; Might remove or change
+
+;; -- Top-bar configuration --
+
+(display-time-mode 1)
+(display-battery-mode 1)
+(column-number-mode 1)
+
+;; == Functionality ==
+(setq inhibit-startup-screen t)
+(setq visible-bell t)
