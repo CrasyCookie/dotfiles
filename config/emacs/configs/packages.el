@@ -1,10 +1,10 @@
-
 ;; ========================================
 ;;  This file contains package management
 ;; ========================================
 
 (provide 'packages)
 (require 'package)
+(require 'package-vc)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("org" . "https://orgmode.org/elpa/")
@@ -56,11 +56,11 @@
 (use-package emms-player-spotify)
 (use-package emms-state)
 
-;(use-package emacs-everywhere)
+;;(use-package emacs-everywhere)
 
 ;; I hate clangd I hate clangd I hate clangd
 (use-package eglot
-             :custom (eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider)))
+  :custom (eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider)))
 
 (use-package docker
   :ensure t
@@ -76,7 +76,7 @@
   ;; At least one of these two is needed
   (setq org-mem-do-sync-with-org-id t)
   (setq org-mem-watch-dirs
-        (list "~/Notes")) ;; Configure me
+        (list "~/Notes"))
   (org-mem-updater-mode))
 
 (use-package org-node
@@ -87,3 +87,25 @@
     (keymap-set org-mode-map "M-o" org-node-org-prefix-map))
   :config
   (org-node-cache-mode))
+
+;; TODO: Configure perspective
+(use-package perspective
+  :bind
+  ("C-x C-b" . persp-list-buffers)         ; or use a nicer switcher, see below
+  :custom
+  (persp-mode-prefix-key (kbd "C-c M-p"))
+  :init
+  (persp-mode))
+
+;; TODO: Configure tinee
+(use-package tinee
+  :vc (:url "https://codeberg.org/tusharhero/tinee.git")
+
+  ;; uncomment to make tinee automatically copy and insert text area contents.
+  ;; :hook (tinee-before-make-frame-hook . tinee-copy)
+  ;; :hook (tinee-after-make-frame-hook . (lambda () (insert (or (gui-selection-value) ""))))
+
+  ;; default values, change them if you would like to.
+  :custom
+  ((tinee-send-text-function 'tinee-write) ; tinee-write or tinee-paste or tinee-paste-c-v
+   (tinee-frame-name "tinee")))

@@ -23,12 +23,8 @@
  '(custom-safe-themes
    '("0f1341c0096825b1e5d8f2ed90996025a0d013a0978677956a9e61408fcd2c77"
      default))
- '(package-selected-packages
-   '(ace-window cargo devil doom-modeline doom-themes elfeed
-		emacs-everywhere emms-player-spotify emms-state empv
-		forge go-mode json-mode lua-mode magit markdown-mode
-		org-modern org-node qml-mode rust-mode swiper
-		yaml-mode)))
+ '(package-selected-packages nil)
+ '(package-vc-selected-packages '((tinee :url "https://codeberg.org/tusharhero/tinee.git"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
