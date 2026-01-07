@@ -18,3 +18,10 @@
 
 ;; == Rebind keys ==
 (global-set-key (kbd "C-x o") 'ace-window)
+
+;; -- Helm --
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x b") 'helm-mini)
+;; Part of package swiper-helm
+(global-set-key (kbd "C-s") 'swiper-helm)

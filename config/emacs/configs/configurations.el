@@ -77,10 +77,23 @@
 ;;      emms-info-functions '(emms-info-native)
 ;;      emms-show-format "Playing %s")
 
+;;(editorconfig-mode 1)
+
+;; Move backup- and autosave files to the emacs directory.
+;; https://stackoverflow.com/a/22176971
+(setq auto-save-file-name-transforms
+      `((".*" ,(concat user-emacs-directory "auto-save/") t)))
+(setq backup-directory-alist
+      `(("." . ,(expand-file-name
+                 (concat user-emacs-directory "backups")))))
+
 ;; -- Org-node --
 (setq org-node-backlink-do-drawers t)
 (org-node-backlink-mode)
 
 (setq indent-tabs-mode nil)
 
-;;(editorconfig-mode 1)
+;; -- helm --
+(setq helm-M-x-fuzzy-match   t
+ helm-buffers-fuzzy-matching t
+ helm-recentf-fuzzy-match    t)

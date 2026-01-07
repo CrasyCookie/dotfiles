@@ -27,26 +27,30 @@
 
 (use-package ace-window)
 
-(use-package ivy
-  :diminish
-  :bind (("C-s" . swiper)
-	 :map ivy-minibuffer-map
-	 ("TAB" . ivy-alt-done)
-	 ("C-l" . ivy-alt-done)
-	 ("C-j" . ivy-next-line)
-	 ("C-k" . ivy-previous-line)
-	 :map ivy-switch-buffer-map
-	 ("C-k" . ivy-previous-line)
-         ("C-l" . ivy-done)
-	 ("C-d" . ivy-switch-buffer-kill)
-	 :map ivy-reverse-i-search-map
-	 ("C-k" . ivy-previous-line)
-	 ("C-d" . ivy-reverse-i-search-kill))
-  :config
-  (ivy-mode 1))
-(ivy-mode 1)
+;; (use-package ivy
+;;   :diminish
+;;   :bind (("C-s" . swiper)
+;; 	 :map ivy-minibuffer-map
+;; 	 ("TAB" . ivy-alt-done)
+;; 	 ("C-l" . ivy-alt-done)
+;; 	 ("C-j" . ivy-next-line)
+;; 	 ("C-k" . ivy-previous-line)
+;; 	 :map ivy-switch-buffer-map
+;; 	 ("C-k" . ivy-previous-line)
+;;          ("C-l" . ivy-done)
+;; 	 ("C-d" . ivy-switch-buffer-kill)
+;; 	 :map ivy-reverse-i-search-map
+;; 	 ("C-k" . ivy-previous-line)
+;; 	 ("C-d" . ivy-reverse-i-search-kill))
+;;   :config
+;;   (ivy-mode 1))
+;; (ivy-mode 1)
 
-(use-package swiper :ensure t)
+;;(use-package swiper :ensure t)
+
+(use-package helm)
+(use-package swiper-helm)
+(helm-mode)
 
 (use-package org-modern)
 
@@ -87,6 +91,12 @@
     (keymap-set org-mode-map "M-o" org-node-org-prefix-map))
   :config
   (org-node-cache-mode))
+
+(use-package magit)
+(use-package forge)
+
+(use-package undo-tree)
+(global-undo-tree-mode)
 
 ;; TODO: Configure perspective
 (use-package perspective
