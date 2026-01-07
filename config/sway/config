@@ -23,6 +23,7 @@ set $resources "alacritty -T 'Resource manager' -e 'top'"
 set $menu fuzzel
 # Symlink to ~/Pictures/solarized-gentoo-wallpapers/optimisation-customisation-efficiency/gentoo-solarized-optimisation-customisation-efficiency.png
 set $wallpaper "~/Media/Pictures/Desktop_background"
+set $emacsEverywhereCommand "emacsclient --eval '(tinee)' -a ''"
 
 ### Output configuration
 output * {
@@ -59,6 +60,10 @@ bindsym $mod2+i exec $webbrowser
 bindsym $mod+m exec $resources
 bindsym $mod2+m exec $resources
 
+# Execute either emacs-everywhere or tinee
+bindsym $mod+bracketleft exec $emacsEverywhereCommand
+bindsym $mod2+bracketleft exec $emacsEverywhereCommand
+
 # Lock the computer
 bindsym $mod+n exec swaylock
 bindsym $mod2+n exec swaylock
@@ -78,8 +83,8 @@ bindsym $mod2+space exec $menu
 bindsym $mod+o exec $chatapp
 bindsym $mod2+o exec $chatapp
 
-bindsym $mod+bracketleft exec $EDITOR
-bindsym $mod2+bracketleft exec $EDITOR
+#bindsym $mod+bracketleft exec $EDITOR
+#bindsym $mod2+bracketleft exec $EDITOR
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.

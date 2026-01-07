@@ -26,6 +26,10 @@ else
     PROMPT_CHAR='$'
 fi
 
+# Add distribution information in prompt
+export DISTRO_NAME="$( (. /etc/os-release && printf "${NAME}") || printf "unknown")"
+export DISTRO_ID="$( (. /etc/os-release && printf "${ID}") || printf "unknown")"
+
 zstyle ':vcs_info:*' enable git cvs svn
 zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a] '
 zstyle ':vcs_info:*' formats '%s@%b '
@@ -33,7 +37,7 @@ zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:%r'
 add-zsh-hook precmd vcs_info
 
 # git/vcs (conditional) | user@hostname | exit-status (conditional) | cwd (tilde-substituted)
-PROMPT='[ %F{cyan}${vcs_info_msg_0_}%F{$PROMPT_USER_COLOUR}%n@%m %F{red}${${?/0/}:+$? }%F{blue}%~ %f]
+PROMPT='[ %F{cyan}${vcs_info_msg_0_}%F{$PROMPT_USER_COLOUR}%n@%m %F{magenta}(${DISTRO_NAME}) %F{red}${${?/0/}:+$? }%F{blue}%~ %f]
 ${PROMPT_CHAR} '
 
 # ZSH Line Editor settings
