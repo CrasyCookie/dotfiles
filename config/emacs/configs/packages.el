@@ -62,7 +62,8 @@
 
 ;;(use-package emacs-everywhere)
 
-;; I hate clangd I hate clangd I hate clangd
+;; Disable LSPs from doing unnecessary things like rewriting the file
+;; to fit the "correct" style (/cough cough/ clangd) while editing it.
 (use-package eglot
   :custom (eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider)))
 
@@ -95,8 +96,11 @@
 (use-package magit)
 (use-package forge)
 
-(use-package undo-tree)
-(global-undo-tree-mode)
+;;(use-package undo-tree)
+;;(global-undo-tree-mode)
+
+;; Vundo /should/ be better than undo-tree
+(use-package vundo)
 
 ;; TODO: Configure perspective
 (use-package perspective

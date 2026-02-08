@@ -1,6 +1,7 @@
 *.netrwhist
 *.zcompdump
 *.histfile
+*.log
 
 config/vim/pack
 
@@ -11,3 +12,4 @@ config/emacs/*
 !config/emacs/init.el
 !config/emacs/configs
 !config/emacs/configs/*
+!config/emacs/auto-save/.gitkeep
