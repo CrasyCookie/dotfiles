@@ -30,11 +30,12 @@
 (set-face-attribute 'default nil :font "Noto Sans Mono" :height 110)
 
 ;; Solarized
-(load-theme 'doom-solarized-light t)
+(add-hook 'after-init-hook
+	  (lambda () (load-theme 'doom-solarized-light t)))
 
 ;; org-modern for org-mode
-(add-hook 'org-mode-hook #'org-modern-mode)
-(add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
+;;(add-hook 'org-mode-hook #'org-modern-mode)
+;;(add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
 
 ;; This determines the style of line numbers in effect. If set to 'nil', line
 ;; numbers are disabled. For relative line numbers, set this to 'relative'.

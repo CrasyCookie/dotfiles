@@ -11,6 +11,7 @@ alias cp='cp -i'
 alias cal="cal -y -c 4"
 alias mpv="mpv --save-position-on-quit"
 alias whatsmyip="stunclient stunserver2025.stunprotocol.org"
+alias e="emacsclient"
 
 # zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html
 
