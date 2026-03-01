@@ -22,6 +22,7 @@ xkb_symbols "us_custom" {
     key <AC03> {[ d,            D,          cent,           degree          ]};
     key <AC07> {[ j,            J,          guillemotleft,  U2039           ]};
     key <AC08> {[ k,            K,          guillemotright, U203A           ]};
+    key <AC09> {[ l,            L,          Greek_lambda,   Greek_LAMBDA    ]};
 
     key <AD04> {[ r,            R,          copyright,      trademark       ]};
     key <AD05> {[ t,            T,          thorn,          Thorn           ]};
