@@ -3,13 +3,13 @@
 *.histfile
 *.log
 
-config/vim/pack
+vim/dot-config/vim/pack
 
 # Usa a whitelist for the emacs folder
-config/emacs/*
+emacs/dot-config/emacs/*
 #!config/emacs/*/
 
-!config/emacs/init.el
-!config/emacs/configs
-!config/emacs/configs/*
-!config/emacs/auto-save/.gitkeep
+!emacs/dot-config/emacs/init.el
+!emacs/dot-config/emacs/configs
+!emacs/dot-config/emacs/configs/*
+!emacs/dot-config/emacs/auto-save/.gitkeep

@@ -1,0 +1,11 @@
+* Installing my dotfiles
+
+Installing my dotfiles are as easy as using GNU stow.
+
+  $ stow --dotfiles [directory name]
+
+Alternatively you can manually handle symlinks if you
+so wish (if GNU stow isn't available)
+
+  $ ln -sr [directory name]/.* "$HOME"
+  $ ln -sr [directory name]/.config/* "$HOME/.config" # or $XDG_CONFIG_HOME
