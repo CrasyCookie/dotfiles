@@ -3,8 +3,6 @@
 *.histfile
 *.log
 
-vim/dot-config/vim/pack
-
 # Usa a whitelist for the emacs folder
 emacs/dot-config/emacs/*
 #!config/emacs/*/

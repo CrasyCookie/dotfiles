@@ -1,0 +1,6 @@
+[submodule "zsh/dot-config/zsh/solarized-tty"]
+	path = zsh/dot-config/zsh/solarized-tty
+	url = https://github.com/CrasyCookie/solarized-tty
+[submodule "vim/dot-config/vim/pack/colourscheme/start/vim-colors-solarized"]
+	path = vim/dot-config/vim/pack/colourscheme/start/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
