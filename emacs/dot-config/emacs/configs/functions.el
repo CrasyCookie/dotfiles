@@ -8,6 +8,6 @@
 (defun find-file-in-notes-dir ()
   "Open find-file in the notes directory"
   (interactive)
-  (cd "~/Notes")
+  (cd "~/org")
   (find-file)
   )

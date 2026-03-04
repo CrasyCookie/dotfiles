@@ -24,12 +24,9 @@
    '("0f1341c0096825b1e5d8f2ed90996025a0d013a0978677956a9e61408fcd2c77"
      default))
  '(package-selected-packages
-   '(2048-game ace-window bln-mode caddyfile-mode chatgpt-shell chess
-	       circe devil docker doom-themes ellama
-	       emms-player-spotify emms-state forge helm-elfeed
-	       helm-systemd ht journalctl-mode lv org-modern org-node
-	       perspective spinner swiper-helm systemd tinee undo-tree
-	       uv-mode vundo))
+   '(ac-helm ace-window devil docker doom-themes elfeed
+	     emms-player-spotify emms-state forge org-modern org-node
+	     perspective swiper-helm tinee vundo))
  '(package-vc-selected-packages '((tinee :url "https://codeberg.org/tusharhero/tinee.git"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

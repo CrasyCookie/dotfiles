@@ -80,8 +80,8 @@
   :config
   ;; At least one of these two is needed
   (setq org-mem-do-sync-with-org-id t)
-  (setq org-mem-watch-dirs
-        (list "~/Notes"))
+  ;;(setq org-mem-watch-dirs
+        ;;(list "~/org"))
   (org-mem-updater-mode))
 
 (use-package org-node

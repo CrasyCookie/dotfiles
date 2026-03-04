@@ -61,22 +61,7 @@
 (setq initial-major-mode 'fundamental-mode)
 (setq initial-scratch-message "")
 
-;; Download video when using empv
-;(add-to-list 'empv-mpv-args "--ytdl-format=bestvideo+bestaudio/best[ext=mp4]/best")
-
-;; Save video positions when exiting mpv
-;(add-to-list 'empv-mpv-args "--save-position-on-quit")
-
 (setq vc-handled-backends '(git))
-
-;; emms configuration
-(emms-all)
-(emms-standard)
-(emms-default-players)
-(setq emms-player-list '(emms-player-mpv))
-;;(setq emms-player-list '(emms-player-mpv)
-;;      emms-info-functions '(emms-info-native)
-;;      emms-show-format "Playing %s")
 
 ;;(editorconfig-mode 1)
 
@@ -98,3 +83,5 @@
 (setq helm-M-x-fuzzy-match   t
  helm-buffers-fuzzy-matching t
  helm-recentf-fuzzy-match    t)
+
+(setq eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider))
