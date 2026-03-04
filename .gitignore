@@ -3,7 +3,7 @@
 *.histfile
 *.log
 
-# Usa a whitelist for the emacs folder
+# Use a whitelist for the emacs folder
 emacs/dot-config/emacs/*
 #!config/emacs/*/
 
@@ -11,3 +11,12 @@ emacs/dot-config/emacs/*
 !emacs/dot-config/emacs/configs
 !emacs/dot-config/emacs/configs/*
 !emacs/dot-config/emacs/auto-save/.gitkeep
+
+# Use a whitelist for the emacs-tiny folder
+emacs-tiny/dot-config/emacs/*
+#!config/emacs/*/
+
+!emacs-tiny/dot-config/emacs/init.el
+!emacs-tiny/dot-config/emacs/configs
+!emacs-tiny/dot-config/emacs/configs/*
+!emacs-tiny/dot-config/emacs/auto-save/.gitkeep
