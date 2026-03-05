@@ -6,9 +6,9 @@
 (require 'package)
 (require 'package-vc)
 
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("org" . "https://orgmode.org/elpa/")
-			 ("elpa" . "https://elpa.gnu.org/packages/")))
+(add-to-list 'package-archives
+	     '(("melpa" . "https://melpa.org/packages/")
+	       ("org" . "https://orgmode.org/elpa/")))
 
 (package-initialize)
 (unless package-archive-contents
@@ -24,7 +24,7 @@
 (setq use-package-always-ensure t)
 (setq use-package-always-defer t)
 
-(use-package doom-themes :demand t)
+;;(use-package doom-themes :demand t)
 
 (use-package ace-window :demand t)
 

@@ -27,11 +27,11 @@
 (set-fill-column 80)
 
 ;; Font
-(set-face-attribute 'default nil :font "Noto Sans Mono" :height 110)
+;;(set-face-attribute 'default nil :font "Noto Sans Mono" :height 110)
 
 ;; Solarized
-(add-hook 'after-init-hook
-	  (lambda () (load-theme 'doom-solarized-light t)))
+;;(add-hook 'after-init-hook
+;;	  (lambda () (load-theme 'doom-solarized-light t)))
 
 ;; org-modern for org-mode
 ;;(add-hook 'org-mode-hook #'org-modern-mode)
@@ -39,8 +39,18 @@
 
 ;; This determines the style of line numbers in effect. If set to 'nil', line
 ;; numbers are disabled. For relative line numbers, set this to 'relative'.
-;;(setq display-line-numbers-type t)
+(setq display-line-numbers-type t)
 ;;(setq display-line-numbers-type 'relative)
+
+
+;; Disable line-wrap/word-wrap
+(add-hook 'text-mode-hook (lambda ()
+                            (visual-line-mode nil)
+                            (toggle-truncate-lines t)))
+
+(add-hook 'prog-mode-hook (lambda ()
+                            (visual-line-mode nil)
+                            (toggle-truncate-lines t)))
 
 ;; -- Top-bar configuration --
 
