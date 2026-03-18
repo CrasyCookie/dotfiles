@@ -85,7 +85,7 @@
 
 ;; -- Org-node --
 (setq org-node-backlink-do-drawers t)
-(org-node-backlink-mode)
+(org-node-backlink-mode 1)
 
 (setq indent-tabs-mode nil)
 

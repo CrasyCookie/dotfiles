@@ -23,8 +23,7 @@
  '(custom-safe-themes
    '("0f1341c0096825b1e5d8f2ed90996025a0d013a0978677956a9e61408fcd2c77"
      default))
- '(package-selected-packages
-   '(ace-window devil doom-themes eat forge org-node swiper-helm))
+ '(package-selected-packages '(ace-window devil forge org-node swiper-helm vundo))
  '(package-vc-selected-packages '((tinee :url "https://codeberg.org/tusharhero/tinee.git"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
